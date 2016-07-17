@@ -1,0 +1,34 @@
+symbol_scraper <- function(symbols){
+  
+  #sample list of symbols to read in
+  #sample_symbols <- c('XLE','XLV','XLI','XLU','XLP','IYZ','XLK','XLY','XLF','XLB','GLD','SLV','EFA','EEM','FXA','FXE','FXY','HYG','LQD','SPY')
+  
+  library(quantmod)
+  library(PerformanceAnalytics)
+  
+  #getSymbols is a function of the quantmod package, yahoo is default source
+  getSymbols(symbols,from='2007-01-01')
+  #getSymbols('SPY',from='2007-01-01')
+  
+  #SP500 is the symbol SPY
+  #see Cl command (it works with OHLC data)
+  SP500 <- Cl(SPY)
+  colnames(SP500)[1] <- 'SPY'
+  
+  #Function to build a dataframe form a list of symbols
+  symbolFrame <- function(symbolList) {
+    theData <- data.frame(NULL)
+    for (S in symbolList) {
+      theData <- cbind(theData,Cl(get(S)))
+    }
+    colnames(theData) <- symbolList
+    return(theData)
+    
+  }
+  
+  final_data <- symbolFrame(symbols)
+  
+  
+  return(final_data)
+  
+}
