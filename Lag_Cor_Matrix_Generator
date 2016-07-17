@@ -1,0 +1,77 @@
+lag_cor_matrix_generator <- function(input_df, shift_interval=1){
+
+lag_cor_matrix_generator <- function(input_df, shift_interval=1){
+
+  #xtract one column from the data frame, delete last n rows from this column
+  #delete first n rows from the rest of the data frame
+  #find the correlation between the two, generating a matrix of these correlations
+
+
+  sample_shift_df <- data.frame(input_df)
+  #---------------------------------------------------------------------------------
+  #global variables
+  #n is number of rows to shift the correlation by
+  n <- shift_interval
+
+
+  #find the number of columns in the data frame
+  df_cols <- ncol(sample_shift_df)
+  #find the number of rows in the data frame
+  df_rows<- nrow(sample_shift_df)
+
+
+  #preallocate correlation matrix created in the for loop (for speed)
+  big_cor_matrix <- matrix(NA, nrow=df_cols, ncol = df_cols)
+
+  #preallocate row_names_matrix created in the for loop (for speed)
+  cor_matrix_row_names <- matrix(NA, nrow = df_cols, ncol = 1)
+
+  #-------------------------------------------------------------------------------
+  #looping through each column
+  for(i in 1:df_cols){
+  
+    #pull out a specific column to be shifted and correlated
+    test_col <- sample_shift_df[,c(i)]
+    #convert to data frame
+    test_col <- data.frame(test_col)
+  
+    #remove last n rows from test_col
+    test_col_shift <- head(test_col,-n)
+  
+  
+    #create name for test_col_shift
+    test_col_name <- colnames(sample_shift_df)[i]
+    test_col_name <- paste(test_col_name,"_shifted_",sep = "")
+    test_col_name <- paste(test_col_name,n,sep = "")
+    test_col_name <- paste(test_col_name,"_period(s)",sep = "")
+    #change name of test_col_shift
+    colnames(test_col_shift) <- c(test_col_name)
+  
+  
+    #remove first n rows from the matrix
+    sample_shift_df_removed <- sample_shift_df[-1:-n,]
+  
+    #-------------------------------------------------------------------------------
+    #correlations
+    #correlation is created between the shifted column and shifted matrix
+    correlation_matrix <- cor(test_col_shift,sample_shift_df_removed)
+  
+    #get the row name from the correlation_matrix
+    cor_matrix_row_names[i,] <- rownames(correlation_matrix)
+    #get the column names from the correlation_matrix
+    cor_matrix_col_names <- colnames(correlation_matrix)
+  
+  
+    #create a matrix containing all correlation matrices created in this loop
+    big_cor_matrix[i,] <- c(correlation_matrix)
+  }
+  #---------------------------------------------------------------------------------
+  #add column names to big_cor_matrix
+  colnames(big_cor_matrix) <- cor_matrix_col_names
+  rownames(big_cor_matrix) <- cor_matrix_row_names
+  
+  #return output
+  return(big_cor_matrix)
+  
+}
+  
