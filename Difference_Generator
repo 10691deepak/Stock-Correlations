@@ -37,11 +37,6 @@ difference_generator <- function(input_data, lag_period, if_time_col=FALSE, time
   # Subfunctions: none
   #
   # See also: diff()
-  #
-  # Author: Hunter McCawley
-  # email: huntermccawley@hotmail.com
-  # Date Created: 28.04.2016
-  # Last Revision: --
   # Revision Notes:
   #    notes
   ##
