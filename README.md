@@ -25,4 +25,4 @@ I also want to automate the functions to run multiple times with different lag p
 
 Once the strongest correlations have been found, i want to create a linear model to try to predict future stock prices a few days ahead.
 
-To summarize, if we find that stock A moves by a given amount on day 1 and this consistently leads to stock B moving by a given amount several days later, then we know that an increase or decrease in stock A will lead to an increase or decrease in stock B before it happens.
+To summarize, if stock A moves by a given amount on day 1 and this consistently leads to stock B moving by a given amount several days later, then we know that an increase or decrease in stock A will lead to an increase or decrease in stock B before it happens.
