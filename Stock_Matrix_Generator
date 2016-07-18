@@ -53,11 +53,6 @@ stock_matrix_generator <- function(min_period_length, trade_volume=TRUE, close_p
   # Subfunctions: none
   #
   # See also: 
-  #
-  # Author: Hunter McCawley
-  # email: huntermccawley@hotmail.com
-  # Date Created: 26.04.2016
-  # Last Revision: 29.04.2016
   # Revision Notes: revised to allow more input specifications
   #    
   ##
