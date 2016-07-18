@@ -8,11 +8,16 @@ Then a minimum number of time periods can be selected (for example, exclude any 
 
 Then each stock / index will be shifted by a given period (for example 3 days) and compared to all other stocks / indexes which have not been shifted, and a lag correlation will be found.  From these correlations, a matrix will be made:
 
+
+
       A-shifted 1   B-shifted-1  C-shifted-1  .....    n-shifted 1
 A        cor                  cor                   cor
 B        cor                  cor                   cor
 C        cor                  cor                   cor
 n
+
+
+
 
 So far, all of this seems to be working, aside from collecting the stock price and other index information.
 
