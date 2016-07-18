@@ -4,10 +4,7 @@ cor_master <- function(min_periods =3000, lag_periods = 1){
     #quantmod 
     #zoo
     #PerformanceAnalytics
-  load(quantmod)
-  load(zoo)
-  load(PerformanceAnalytics)
-  
+
   #timing the code
   g <- rnorm(100000)
   h <- rep(NA, 100000)
