@@ -52,13 +52,7 @@ correlation_generator = function(predictor_stock_matrix, response_stock_matrix, 
   # Subfunctions: none
   #
   # See also: OTHER_FUNCTION_NAME1,  OTHER_FUNCTION_NAME2
-  #
-  # Author: Hunter McCawley
-  # email: huntermccawley@hotmail.com
-  # Date Created: 24.09.2016
-  # Last Revision: --
-  # Revision Notes:
-  #    --
+
   ##
   
   

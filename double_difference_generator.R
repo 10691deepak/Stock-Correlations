@@ -69,14 +69,7 @@ double_difference_generator <- function(stock_data_frame, predictor_diff, respon
   # Subfunctions: none
   #
   # See also:
-  #
-  # Author: Hunter McCawley
-  # email: huntermccawley@hotmail.com
-  # Date Created: 31.05.2016
-  # Last Revision: 21.09.2016
-  # Revision Notes: 
-  #    notes
-  ##
+ 
   
   
   #---------------------------------------------------------------------------------------------
