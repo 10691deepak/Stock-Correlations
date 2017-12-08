@@ -1,6 +1,6 @@
 # Stock-Correlations
 The objective of Stock-Correlation model is to predict stock price for future (usually 12-18 hrs) using the current stock prices from NASDAQ
-The Inputs to come up with Stock-correlation model are:
+# The Inputs and outputs leveraged to come up with Stock-correlation model were:
   1. predict stock matrix (whole number, greater than 1 & less than number of rows in stock_data_frame)
   2. response stock matrix (the period length between which rows should be subtracted in the response stocks)
   3. rolling correlation (if TRUE a rolling correlation will be conducted. If FALSE a standard correlation will be conducted)
